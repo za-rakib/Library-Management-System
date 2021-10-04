@@ -12,7 +12,7 @@ const IssueBook = () => {
   } = useForm();
   const onSubmit = (e) => {
     //console.log(e);
-    const url = `http://localhost:5000/issueBook`;
+    const url = `https://ist-library-management.herokuapp.com/issueBook`;
     fetch(url, {
       method: "POST",
       headers: {

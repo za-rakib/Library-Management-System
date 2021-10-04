@@ -13,7 +13,7 @@ const AddBook = () => {
       quantity: e.quantity,
     };
     console.log(booksData);
-    const url = `http://localhost:5000/addBook`;
+    const url = `https://ist-library-management.herokuapp.com/addBook`;
     fetch(url, {
       method: "POST",
       headers: {
