@@ -1,0 +1,11 @@
+.departmentCard{
+  height:150px;
+  width:200px;
+}
+.cardImg{
+  height:80px;
+  width:80px;
+}
+.cardText{
+  text-decoration: none;
+}
