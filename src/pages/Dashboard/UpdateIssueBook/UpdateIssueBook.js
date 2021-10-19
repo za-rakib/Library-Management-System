@@ -35,8 +35,38 @@ const UpdateIssueBook = ({ modalIsOpen, closeModal, findBook}) => {
             className="form-control"
             type="text"
             defaultValue={findBook.studentName}
-            // {...register("department", { required: true })}
           />
+           <input
+            placeholder="Student Name"
+            className="form-control"
+            type="text"
+            defaultValue={findBook.studentName}
+          />
+           <input
+            placeholder="Student Name"
+            className="form-control"
+            type="text"
+            defaultValue={findBook.studentName}
+          />
+           <input
+            placeholder="Student Name"
+            className="form-control"
+            type="text"
+            defaultValue={findBook.studentName}
+          />
+           <input
+            placeholder="Student Name"
+            className="form-control"
+            type="text"
+            defaultValue={findBook.studentName}
+          />
+           <input
+            placeholder="Student Name"
+            className="form-control"
+            type="text"
+            defaultValue={findBook.studentName}
+          />
+          
         </form>
       </Modal>
     </div>
