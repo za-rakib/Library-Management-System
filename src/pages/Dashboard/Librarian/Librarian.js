@@ -8,7 +8,7 @@ const Librarian = () => {
 
   const onSubmit = (e) => {
     console.log(e);
-    const url = `http://localhost:5000/addLibrarian`;
+    const url = `https://ist-library-management.herokuapp.com/addLibrarian`;
     fetch(url, {
       method: "POST",
       headers: {

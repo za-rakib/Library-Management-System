@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const IssueBookList = ({ issueBooks, setIssueBooks }) => {
   // console.log("Issue Books", issueBooks);
   useEffect(() => {
-    fetch(`http://localhost:5000/getIssueBooks`)
+    fetch(`https://ist-library-management.herokuapp.com/getIssueBooks`)
       .then((res) => res.json())
       .then((issueBook) => setIssueBooks(issueBook));
   }, [issueBooks, setIssueBooks]);

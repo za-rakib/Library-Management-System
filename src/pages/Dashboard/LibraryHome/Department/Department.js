@@ -22,7 +22,7 @@ const Department = () => {
     //  console.log(e.target.innerHTML);
     const departmentName = e.target.innerHTML;
     // console.log(departmentName);
-    fetch("http://localhost:5000/booksByDepartment", {
+    fetch("https://ist-library-management.herokuapp.com/booksByDepartment", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({departmentName: departmentName}),
