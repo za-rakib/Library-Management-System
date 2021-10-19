@@ -11,6 +11,7 @@ const AddBook = () => {
       authorName: e.author_name,
       price: e.price,
       quantity: e.quantity,
+      department: e.department_name
     };
     console.log(booksData);
     const url = `https://ist-library-management.herokuapp.com/addBook`;
@@ -39,7 +40,7 @@ const AddBook = () => {
           <Sidebar />
         </div>
         <div className="col-md-9">
-          <h1 className="text-white text-center m-5 ">Add Book</h1>
+          <h1 className="text-white text-center m-3 ">Add Book</h1>
           <div className={`p-5 ${classes.bookForm}`}>
             <form className="" onSubmit={handleSubmit(onSubmit)}>
               <input
@@ -47,6 +48,7 @@ const AddBook = () => {
                 placeholder="Book Name"
                 name="name"
                 type="text"
+                
                 {...register("book_name", { required: true })}
               />
               <br />
@@ -56,6 +58,14 @@ const AddBook = () => {
                 name="name"
                 type="text"
                 {...register("author_name", { required: true })}
+              />
+              <br />
+              <input
+                className="form-control"
+                placeholder="Department Name"
+                name="name"
+                type="text"
+                {...register("department_name", { required: true })}
               />
               <br />
               <input

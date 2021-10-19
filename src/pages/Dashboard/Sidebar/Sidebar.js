@@ -21,7 +21,7 @@ const Sidebar = () => {
         <Link to="/addBooks" className="">
           <FontAwesomeIcon className="me-3" icon={faBookMedical} /> Add Books
         </Link>
-        <Link to="/" className="">
+        <Link to="/addLibrarian" className="">
         <FontAwesomeIcon className="me-3" icon={faUserShield} />Make Librarian
         </Link>
         <Link to="/" className="">

@@ -1,47 +1,51 @@
-import React from "react";
-import cse from "../../../../image/cse.png";
-import ece from "../../../../image/ece.jpg";
-import bba from "../../../../image/bba.jpg";
+import React, { useState } from "react";
 import classes from "./Department.module.css";
-import { Link } from "react-router-dom";
+import DepartmentBookList from "./DepartmentBookList";
 
 const departmentInfo = [
   {
-    img: cse,
     name: "CSE",
   },
-
   {
-    img: ece,
     name: "ECE",
   },
   {
-    img: bba,
     name: "BBA",
   },
 ];
+
 const Department = () => {
+  const [departmentBooks, setDepartmentBooks] = useState([]);
+  // console.log(departmentBooks);
+  const handleChange = (e) => {
+    // console.log(e);
+    //  console.log(e.target.innerHTML);
+    const departmentName = e.target.innerHTML;
+    // console.log(departmentName);
+    fetch("http://localhost:5000/booksByDepartment", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({departmentName: departmentName}),
+    })
+      .then((res) => res.json())
+      .then((books) => setDepartmentBooks(books));
+  };
+
   return (
-    <Link to="/addBook">
+    <div className="container-fluid">
       <div className="row">
         {departmentInfo.map((department) => (
-          <div className="col-md-4 text-center">
-            <div className={`card ${classes.departmentCard}`}>
-              <div>
-                <img
-                  className={`card-img-top ${classes.cardImg}`}
-                  src={`${department.img}`}
-                  alt=""
-                />
-              </div>
-              <div className="card-body">
-                <h1 className={`${classes.cardText}`}>{department.name}</h1>
-              </div>
-            </div>
+          <div className={`col-md-4 text-center`}>
+            <label className={`${classes.cardText}`} onClick={handleChange}>
+              {department.name}
+            </label>
           </div>
         ))}
       </div>
-    </Link>
+      <div className="row mt-5">
+        <DepartmentBookList books={departmentBooks}/>
+      </div>
+    </div>
   );
 };
 

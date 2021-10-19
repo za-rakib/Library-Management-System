@@ -1,10 +1,13 @@
 .login{
-background-color:#f5f5f5;
+background-color:#ffffff;
 height:calc(100vh)
 }
 .logo img{
   height:120px;
   width:120px;
+}
+.loginTop{
+background-color:#1d3863;
 }
 .logoText h1{
   font-family: 'Ubuntu', sans-serif;

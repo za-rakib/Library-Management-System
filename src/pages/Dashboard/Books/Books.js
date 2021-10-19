@@ -22,31 +22,36 @@ const Books = () => {
             <table className="table table-striped">
               <thead className={`${classes.tableHead}`}>
                 <tr>
-                  <th className="me-5" scope="col">
+                  <th className="" scope="col">
                     Sr No
                   </th>
-                  <th className="" scope="col">
+                  <th className="" scope="">
                     Name
                   </th>
-                  <th className="" scope="col">
-                    Author Name
+                  <th className="" scope="">
+                    Author
                   </th>
                   <th className="" scope="col">
                     Price
                   </th>
                   <th className="" scope="col">
-                    Book Quantity
+                    Quantity
+                  </th>
+                  <th className="" scope="col">
+                    Dep.
                   </th>
                 </tr>
               </thead>
               <tbody className={`${classes.tableBody}`}>
                 {books.map((book, index) => (
                   <tr>
-                    <td>{index+1}</td>
+                    <td>{index + 1}</td>
                     <td>{book.bookName} </td>
                     <td>{book.authorName}</td>
                     <td> {book.price}</td>
                     <td>{book.quantity}</td>
+                    <td>{book.department}</td>
+                    
                   </tr>
                 ))}
               </tbody>

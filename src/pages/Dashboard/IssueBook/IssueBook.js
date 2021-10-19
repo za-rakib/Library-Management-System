@@ -3,8 +3,9 @@ import Sidebar from "../Sidebar/Sidebar";
 import classes from "./IssueBook.module.css";
 import { useForm } from "react-hook-form";
 import Button from "../../../components/UI/Button/Button";
+import IssueBookList from './../IssueBookList/IssueBookList';
 
-const IssueBook = () => {
+const IssueBook = ({ issueBooks, setIssueBooks }) => {
   const {
     register,
     handleSubmit,
@@ -20,15 +21,15 @@ const IssueBook = () => {
       },
       body: JSON.stringify(e),
     })
-    .then(response => response.json())
-    .then (result => {
-      if(result){
-        alert("Booked Issue successfully")
-      }
-    })
-    .catch(error => {
-      console.log(error);
-    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result) {
+          alert("Booked Issue successfully");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -43,62 +44,75 @@ const IssueBook = () => {
           >
             Institute of Science & Technology (IST)
           </h1>
-          <div>
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className={`${classes.issueForm} p-5 mt-5 `}
-            >
-              <input
-                placeholder="Student Name"
-                className="form-control"
-                type="text"
-                {...register("studentName")}
-              />
-              {errors.exampleRequired && (
-                <span style={{ color: "red" }}>This field is required</span>
-              )}
-              <br />
-              <input
-                placeholder="Department"
-                className="form-control"
-                type="text"
-                {...register("department", { required: true })}
-              />
+          <div className="row">
+            <div className="col-md-5">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className={`${classes.issueForm} p-4 mt-4 `}
+              >
+                <input
+                  placeholder="Student Name"
+                  className="form-control"
+                  type="text"
+                  {...register("studentName")}
+                />
+                {errors.exampleRequired && (
+                  <span style={{ color: "red" }}>This field is required</span>
+                )}
+                <br />
+                <input
+                  placeholder="Department"
+                  className="form-control"
+                  type="text"
+                  {...register("department", { required: true })}
+                />
 
-              <br />
-              <input
-                placeholder="Student Semester"
-                className="form-control"
-                type="text"
-                {...register("semester", { required: true })}
-              />
+                <br />
+                <input
+                  placeholder="Student Semester"
+                  className="form-control"
+                  type="text"
+                  {...register("semester", { required: true })}
+                />
+                 <br />
+                <input
+                  placeholder="Roll Number"
+                  className="form-control"
+                  type="number"
+                  {...register("roll", { required: true })}
+                />
+                <br />
+                <input
+                  placeholder="Books Name"
+                  className="form-control"
+                  type="text"
+                  {...register("bookName", { required: true })}
+                />
 
-              <br />
-              <input
-                placeholder="Student Email"
-                className="form-control"
-                type="text"
-                {...register("Email", { required: true })}
-              />
-
-              <br />
-              <input
-                placeholder="Books Name"
-                className="form-control"
-                type="text"
-                {...register("bookName", { required: true })}
-              />
-
-              <br />
-              <input
-                placeholder="Books Issue Date"
-                className="form-control"
-                type="date"
-                {...register("date", { required: true })}
-              />
-              <br />
-              <Button type="submit"> Submit</Button>
-            </form>
+                <br />
+                <input
+                  placeholder="Issue Date"
+                  className="form-control"
+                  type="date"
+                  {...register("issueDate", { required: true })}
+                />
+                <label>Return Date</label>
+                <input
+                  placeholder="Date"
+                  className="form-control"
+                  type="date"
+                  // placeholder="Return Date"
+                  // className="form-control"
+                  // type="date"
+                  {...register("returnDate", { required: true })}
+                />
+                <br />
+                <Button type="submit"> Submit</Button>
+              </form>
+            </div>
+            <div className={`col-md-7 ${classes.issueTable}`}>
+              <IssueBookList issueBooks={issueBooks} setIssueBooks={setIssueBooks} />
+            </div>
           </div>
         </div>
       </div>
