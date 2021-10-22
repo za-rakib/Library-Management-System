@@ -112,7 +112,7 @@ const SignUp = () => {
               <div className="signupForm mt-5">
                 <h1 className="pt-4">Sign Up</h1>
                 <form
-                  className="text-center ms-5"
+                  className="text-center p-3"
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <div className="mb-3 form-group">
