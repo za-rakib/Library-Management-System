@@ -8,19 +8,30 @@ const BookDetails = ({ issueBooks }) => {
   let { bookId } = useParams();
   const hasData = issueBooks.length > 0;
   const findBook = hasData && issueBooks.find((book) => book._id === bookId);
-  // hasData && console.log("Issue Books", issueBooks[0].bookName);
 
-  // console.log("Book Info", findBook);
+  //modal
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
-//modal
-const [modalIsOpen, setIsOpen] = React.useState(false);
-
-function openModal() {
-  setIsOpen(true);
-}
-function closeModal() {
-  setIsOpen(false);
-}
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal() {
+    setIsOpen(false);
+  }
+  // deleted item
+  const handleDelete = (id) => {
+    // console.log("deleted", id);
+    fetch(`https://ist-library-management.herokuapp.com/itemDeleted/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((success) => {
+        console.log("success", success);
+        if (success) {
+          alert("Delete successfully");
+        }
+      });
+  };
 
   return (
     <div className={`container-fluid ${classes.bookDetails}`}>
@@ -42,10 +53,10 @@ function closeModal() {
             </div>
             <div className={`mt-5 ${classes.bookInfo}`}>
               <h3>
-                <span>Student Name : </span>    {findBook.studentName}
+                <span>Student Name : </span> {findBook.studentName}
               </h3>
               <h3>
-                <span>Book Name :</span>  {findBook.bookName}
+                <span>Book Name :</span> {findBook.bookName}
               </h3>
               <h3>
                 <span>Semester :</span> {findBook.semester}
@@ -66,16 +77,23 @@ function closeModal() {
             </div>
           </div>
           <div className="d-flex">
-            <button onClick={openModal} className={`${classes.updateBtn} btn`}>Update</button>
+            <button onClick={openModal} className={`${classes.updateBtn} btn`}>
+              Update
+            </button>
 
-            <button type="button" className={`${classes.deletedBtn} btn`}>Delete</button>
-            </div>
+            <button
+              onClick={() => handleDelete(findBook._id)}
+              className={`${classes.deletedBtn} btn`}
+            >
+              Delete
+            </button>
+          </div>
 
-            <UpdateIssueBook
+          <UpdateIssueBook
             modalIsOpen={modalIsOpen}
             closeModal={closeModal}
-            findBook ={findBook}
-            />
+            findBook={findBook}
+          />
         </div>
       </div>
     </div>

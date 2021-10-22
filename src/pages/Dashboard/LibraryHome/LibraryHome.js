@@ -11,7 +11,7 @@ const LibraryHome = () => {
           <Sidebar />
         </div>
         <div className="col-md-9">
-          <h1 className=" mt-3 mb-4 text-center">IST Library Management System</h1>
+          <h1 className={`mt-3 mb-4 text-center ${classes.title}`}>IST Library Management System</h1>
            <Department />
         </div>
       </div>

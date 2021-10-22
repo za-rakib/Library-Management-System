@@ -12,7 +12,7 @@ const Login = () => {
         <div className={`${classes.logo}`}>
           <img src={logo} alt="" />
         </div>
-        <div className={`mt-4 ms-5 ${classes.logoText}`}>
+        <div className={`mt-2 ms-5 ${classes.logoText}`}>
           <h1>IST Library Management System</h1>
           <p>Since 1993</p>
         </div>
