@@ -50,6 +50,7 @@ const UpdateIssueBook = ({ modalIsOpen, closeModal, findBook }) => {
   };
 
   const handleChange = (e) => {
+    e.preventDefault();
     e.target.name === "studentName" &&
       setUpdateData((previousValue) => ({
         ...previousValue,

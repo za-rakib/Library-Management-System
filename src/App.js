@@ -49,9 +49,9 @@ function App() {
           <PrivateRoute path="/addLibrarian">
             <Librarian />
           </PrivateRoute>
-          <PrivateRoute path="/bookId/:bookId">
+          <Route path="/bookId/:bookId">
             <BookDetails issueBooks={issueBooks} />
-          </PrivateRoute>
+          </Route>
           <Route path="/*">
             <NotFound />
           </Route>
