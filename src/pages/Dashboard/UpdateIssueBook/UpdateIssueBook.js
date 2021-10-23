@@ -26,6 +26,7 @@ const UpdateIssueBook = ({ modalIsOpen, closeModal, findBook }) => {
   });
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(updateData);
     fetch(`https://ist-library-management.herokuapp.com/update/${findBook._id}`, {
       method: "PATCH",
